@@ -36,11 +36,14 @@
                                           :adjustable t)))
 
 (defun aaref (associative-array &rest subscripts)
-  (apply #'aref
-         (associative-array-%array associative-array)
-         (map 'list #'gethash
-              subscripts
-              (associative-array-%tables associative-array))))
+  (ignore-errors ;; type error -> wrong subscript
+    (values
+     (apply #'aref
+            (associative-array-%array associative-array)
+            (map 'list #'gethash
+                 subscripts
+                 (associative-array-%tables associative-array)))
+     t)))
 
 (defun (setf aaref) (new-value associative-array &rest subscripts)
   (with-accessors ((%a associative-array-%array)) associative-array
