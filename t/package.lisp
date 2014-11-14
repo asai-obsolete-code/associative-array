@@ -19,6 +19,11 @@
 ;;   test as you like ...
 
 (test associative-array
-
-  )
+  (defparameter a (associative-array 2))
+  (setf (aaref a :one :one) 1)
+  (setf (aaref a :one :two) 2)
+  (setf (aaref a :three :two) 6)
+  (setf (aaref a :four :two) 8)
+  (associative-array-dimension a 0)
+  (associative-array-dimension a 1))
 
