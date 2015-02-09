@@ -1,7 +1,13 @@
 
 * Associative-Array 
 
-** Usage
+Currently not for speed.
+
+** API
+
+
+
+
 
 ** Dependencies
 
